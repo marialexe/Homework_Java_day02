@@ -25,8 +25,13 @@ public class Photographer {
 
   }
 
+  // public String printDetails(Printable camera){
+  //   return camera.printDetails();
+  // }
+
   public String printDetails(Printable camera){
-    return camera.printDetails();
+    return camera.printDetails(camera);
   }
+
 
 }

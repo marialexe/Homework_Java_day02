@@ -5,13 +5,17 @@ public class PhotographerTest {
   Photographer photographer;
   Camera camera1;
   Camera camera2;
+  AnalogCamera camera3;
+  DigitalCamera camera4;
 
   @Before
   public void before(){
     photographer = new Photographer("Janis");
-    camera1 = new Camera("Analog", "Nikon", "34T", "Noise reduction filter", "Hi-resolution");
-    camera2 = new Camera("Digital","Sony", "ILCE5100L", "No noise reduciton", "Lo-resolution");
-    // camera1Specs = 
+    camera1 = new Camera("Analog", "Nikon", "34T", "Noise reduction filter", "Hi-resolution", 1.25);
+    camera2 = new Camera("Digital","Sony", "ILCE5100L", "No noise reduciton", "Lo-resolution", 18.00);
+    camera3 = new AnalogCamera("Analog", "Nikon", "34T", "Noise reduction filter", "Hi-resolution", 1.25);
+    camera4 = new DigitalCamera("Digital","Sony", "ILCE5100L", "No noise reduciton", "Lo-resolution", 18.00);
+    
   }
 
   @Test
@@ -39,7 +43,16 @@ public class PhotographerTest {
 
   @Test
   public void printCameraDetails() {
-    String result = photographer.printDetails(camera1);
-    assertEquals("Analog Nikon 34T Noise reduction filter Hi-resolution", result);
+    String result1 = photographer.printDetails(camera1);
+    assertEquals("Analog Nikon 34T, Noise reduction filter, Hi-resolution", result1);
+    String result2 = photographer.printDetails(camera2);
+    assertEquals("Digital Sony ILCE5100L, No noise reduction, Lo-resolution", result2);
   }
+
+  @Test
+  public void printAnalogCameraDetails() {
+    String result = photographer.printDetails(camera3);
+    assertEquals("Analog Nikon 34T, Noise reduction filter, Hi-resolution", result);
+  }
+
 }

@@ -1,3 +1,3 @@
 public interface Printable {
-  public String printDetails();
+  public String printDetails(Printable camera);
 }
